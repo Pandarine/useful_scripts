@@ -20,41 +20,42 @@
 	git revert commit_id — create new commit with the inverse of commit_id (default is HEAD).
 
 `git checkout` - Change the state of working tree files, e.g. by switching branches or restoring files from a commit or from the index. The command takes content from the repository and puts it in your work tree. It doesn't make changes to the commit history.
-	git checkout branch-/commit-identifier filename -- get a version of filename from branch tip of branch-name, or from commit-identifier
-	git checkout commit_id . — restore working tree (all files) from given commit; last commit is HEAD
-	git checkout HEAD path/to/file — restore file path/to/file from HEAD commit
-	git checkout HEAD .  # restore working tree (all files) from HEAD (last commit on current branch)
-	git checkout commit_id path/to/file  # restore file from commit_id
-	git checkout commit_id .  # restore working tree (all files) from commit_id; if you do `git status` after this, Git will compare the working tree to the HEAD commit and probably see a lot of changes
-	git checkout commit_id -- .  # explicit syntax for `git checkout commit_id .` (`--` separates the branch/commit specifier from the path specifier, in case a branch and a file have the same name)
-	git checkout commit_id  # switch to an un-named branch based on given commit → detached HEAD. If you do `git status` now, Git will compare the working tree to the detached HEAD commit and see no changes (https://stackoverflow.com/a/26399781/)
+	
+	`git checkout branch-/commit-identifier filename` get a version of filename from branch tip of branch-name, or from commit-identifier
+	`git checkout commit_id .` — restore working tree (all files) from given commit; last commit is HEAD
+	`git checkout HEAD path/to/file` restore file path/to/file from HEAD commit
+	`git checkout HEAD .` restore working tree (all files) from HEAD (last commit on current branch)
+	`git checkout commit_id path/to/file` restore file from commit_id
+	`git checkout commit_id .` restore working tree (all files) from commit_id; if you do `git status` after this, Git will compare the working tree to the HEAD commit and probably see a lot of changes
+	`git checkout commit_id -- .` explicit syntax for `git checkout commit_id .` (`--` separates the branch/commit specifier from the path specifier, in case a branch and a file have the same name)
+	`git checkout commit_id` switch to an un-named branch based on given commit → detached HEAD. If you do `git status` now, Git will compare the working tree to the detached HEAD commit and see no changes (https://stackoverflow.com/a/26399781/)
 
-	### Restore from INDEX (without branch/commit specifier, but with path specifier) ###
-	git checkout -- path/to/file  # restore file from INDEX (the absence of a branch/commit-specifier specifies the index)
-	git checkout -- .  # restore working tree (all files) from INDEX (discard all unstaged changes)
-	git checkout .  # abbreviation for the explicit syntax `git checkout -- .`
+### Restore from INDEX (without branch/commit specifier, but with path specifier) ###
+	`git checkout -- path/to/file` restore file from INDEX (the absence of a branch/commit-specifier specifies the index)
+	`git checkout -- .` restore working tree (all files) from INDEX (discard all unstaged changes)
+	`git checkout .` abbreviation for the explicit syntax `git checkout -- .`
 
-	### Switch branches ###
-	git checkout main  # switch to the main branch
+### Switch branches ###
+	`git checkout main` switch to the main branch
 
-	### Restore a revision in a new local branch ###
-	git checkout -b testing commit_id  # create a new branch ("testing") from commit_id; this is safer than `reset`
+### Restore a revision in a new local branch ###
+	`git checkout -b testing commit_id` create a new branch ("testing") from commit_id; this is safer than `reset`
 
 
 `git reset` - Reset current HEAD to the specified state. This command modifies the index, or it changes which commit a branch head is currently pointing at. It may alter existing history (by changing the commit that a branch references).
 
-	git reset --soft HEAD~1 — drop last commit, retain index and working tree	
-	git reset --soft A — index and working tree will NOT be altered (remain at state C; this is the safest option)
-	git reset --mixed A (default) — also change the index; working tree remains at state C
-	git reset --hard A — also change index and working tree; you will go back to the state of A completely
+	`git reset --soft HEAD~1` drop last commit, retain index and working tree	
+	`git reset --soft A` index and working tree will NOT be altered (remain at state C; this is the safest option)
+	`git reset --mixed A` (default) — also change the index; working tree remains at state C
+	`git reset --hard A` also change index and working tree; you will go back to the state of A completely
 
 The dropped commit is not immediately deleted; if you made a mistake, `git reflog` can help to locate and "restore" it
 
 
 `git branch` - List, create, or delete branches
 
-	git branch testing  ### create new branch (called "testing") at current commit ###
-	git branch  ### list local branches ###
+	`git branch testing` create new branch (called "testing") at current commit
+	`git branch` list local branches
 
 `git merge` - Join two or more branches together, by creating a new commit. 
 
