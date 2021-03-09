@@ -19,7 +19,7 @@
 `git revert` - Add new commit that undoes the changes from a previous commit. This command adds new history to the project (it doesn't modify existing history).
 	git revert commit_id — create new commit with the inverse of commit_id (default is HEAD).
 
-#checkout#
+# checkout #
 
 `git checkout` - Change the state of working tree files, e.g. by switching branches or restoring files from a commit or from the index. The command takes content from the repository and puts it in your work tree. It doesn't make changes to the commit history.
 
@@ -59,7 +59,7 @@
 
 *`git checkout -b testing commit_id` create a new branch ("testing") from commit_id; this is safer than `reset`
 
-#reset#
+# reset #
 
 `git reset` - Reset current HEAD to the specified state. This command modifies the index, or it changes which commit a branch head is currently pointing at. It may alter existing history (by changing the commit that a branch references).
 
