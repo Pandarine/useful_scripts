@@ -16,7 +16,7 @@
 
 `git remote` — View remotes
 
-*`git remote set-url origin https://.../…./` - Changes origin of the directory to specified repo (https://.../...)
+- `git remote set-url origin https://.../…./` - Changes origin of the directory to specified repo (https://.../...)
 
 `git revert` - Add new commit that undoes the changes from a previous commit. This command adds new history to the project (it doesn't modify existing history).
 	git revert commit_id — create new commit with the inverse of commit_id (default is HEAD).
