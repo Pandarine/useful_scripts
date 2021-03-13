@@ -1,0 +1,55 @@
+Anleitung Bsp.
+
+#we created a test file and commited it
+
+mkdir Gruppe4
+cd Gruppe4
+touch Test.txt
+nano Test.txt
+git init
+git remote add origin https://github.com/annazoechner/Gruppe4.git
+git status
+git add .
+git commit -m "test.file"
+
+#-----------------------------
+
+#change file local
+
+git add .
+git commit -m "1st change"
+
+#we want to undo the last commit
+cd --
+git log 
+git reset HEAD~1 #goes back one step in the log
+git log #reset can be seen in log
+
+#however the file didn't change - open file
+
+git checkout -hash- -- Test.txt #reset to the previous state 
+#or you can use HEAD instead of the hash
+
+#----revert
+
+##push it to remote and notice then that it was a mistake
+#change something
+
+git add .
+git commit -m "2. Änderung: Im Testfile wurde etwas geändert."
+git push origin master
+
+#show repo
+#with git reset, checkout only local changes are performed
+
+git revert -hash- #hash wo HEAD steht, letzte Änderung
+#texteditor opens - exit 
+
+git push origin master
+
+#wieder Repo herzeigen
+
+
+
+
+
